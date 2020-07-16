@@ -27,7 +27,7 @@ public class ConsultaController {
 
     @GetMapping(
             value = "/{cedula}",
-            produces = {MediaType.APPLICATION_JSON_VALUE})
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<ObjectNode> consultaAsegurado(@PathVariable(value = "cedula") String cedula) {
         // Si la cedula contiene algun caracter que no sea un numero, tirar un BadRequest
         if (!cedula.matches("[0-9]*")) {
