@@ -1,0 +1,21 @@
+{
+  "persona": {
+    "Nro_Documento": "1234567",
+    "Nombres": "BRIGIDA",
+    "Apellidos": "GAUTO JARA",
+    "Fecha_Nacim": "01-02-1967",
+    "Sexo": "FEMENINO",
+    "Tipo_Aseg.": "TITULAR",
+    "Beneficiarios_Activos": "2",
+    "Enrolado": "SI",
+    "Vencimiento_de_fe_de_vida": ""
+  },
+  "empleador": {
+    "Nro._Patronal": "0554-20-0170",
+    "Empleador": "AYALA FARIÑA MARIA RAQUEL",
+    "Estado": "ACTIVO",
+    "Meses_de_aporte": "24",
+    "Vencimiento": "31-08-2020",
+    "Ultimo_Periodo_Abonado": "MARZO/2020"
+  }
+}

@@ -1,0 +1,176 @@
+<html>
+<script type="text/javascript" src="js/funciones_js.js"></script>
+<script language="javascript1.4" type="text/javascript">
+    function validar_y_enviar(pag,vide_asecot,vnro_cic,cant_filas){
+        var entrada = new String();
+        entrada = trim(document.forms[0].ide_asecot);
+        trim(document.forms[0].nro_cic);
+        var ide_emplea;
+        var nro_movimi;
+        var i = new Number();
+        var tipo_frame
+        i=0;
+        if(pag != 0){
+            if(cant_filas > 0){
+                for (i=1;i<=cant_filas;i++){
+                    if (document.getElementById(i).checked){
+                        vide_asecot = eval('document.forms[0].ide_asecot'+i+'.value');
+                        location.replace(pag+'&ide_asecot='+vide_asecot+'&envio=ok'+'&tipo_frame='+tipo_frame);
+                    }
+                }
+            }
+            if (pag == 'consulta_doc_sinadj.php?bandera=1'){
+                location.replace(pag+'&ide_asecot='+vide_asecot+'&envio=ok'+'&tipo_frame='+tipo_frame);
+            }
+        }
+    }
+
+    function validar_nuevo_aseg(nro_docume){
+        var check;
+        var i;
+        var tipo_nacionalidad;
+        var tipo_frame;
+        if(document.forms[0].nro_cic.value == ""){
+            document.forms[0].nro_cic.select();
+            document.forms[0].nro_cic.focus();
+            alert("No puede dejar en blanco el Nro Documento");
+            return false;
+        }
+    }
+
+    function actualizar_detalle(ide_asecot, ind_estado){
+        var paramCot = document.forms[0].paramCot.value;
+        window.parent.frames[1].location="comprobacion_derecho_detalle.php?ind_estado="+ind_estado+"&ide_asecot="+ide_asecot+"&paramCot="+paramCot;
+    }
+
+</script>
+<title>
+    INSTITUTO DE PREVISION SOCIAL
+</title>
+<head>
+    <link href="css/style2.css" rel="stylesheet" type="text/css">
+    </table>
+    <center>
+        <center>
+            <table width="100%">
+                <tr>
+                    <td width="30%"><img src="images/logo1.jpg"></td>
+                    <td align="center" class="titulorojo">CONSULTA DE ASEGURADO</td>
+                    <td width="30%" align="right"><img src="images/logo2.jpg"></td>
+                </tr>
+            </table>
+        </center>
+    </center>
+</head>
+<body >
+<center>
+    <form name="vesbrbacnorc" method="POST" action="comprobacion_de_derecho_externo.php">
+        <table cellpadding=5 border=0 cellspacing=10>
+            <tr>
+                <!--
+                   <td class=titulochico> Tipo de Asegurado: </td>
+                   <td>
+                      <select name="tipo" class=boton>
+                         <option value="cot">Asegurado Cotizante</option>
+                         <option value="ben">Beneficiario</option>
+
+                      </select>
+                   </td>
+                   -->
+                <td class=titulochico> Nro Documento: </td>
+                <td>
+                    <input type=text name=nro_cic maxlength=15 size=12 value="1234567"
+                           onKeyDown='trim_2(document.forms[0].nro_cic)' ></input>
+                </td>
+                <td> <input type=submit name=recuperar  value=Recuperar></input> </td>
+            </tr>
+        </table>
+
+        <H4 align="left" class=titulochico>Jueves 16 de Julio de 2020</H4>
+        <H4 align="left" class=titulochico>Datos de la persona</H4>
+
+        <table>
+            <tr>
+                <th class=titulochico width=3%> Elegir </th>
+                <!--<th class=titulochico width=2%>
+                  Actualizar
+                </th> -->
+                <th class=titulochico width=10%> Nro Documento </th>
+                <th class=titulochico width=20%> Nombres </th>
+                <th class=titulochico width=20%> Apellidos </th>
+                <th class=titulochico width=8%> Fecha Nacim </th>
+                <th class=titulochico width=6%> Sexo </th>
+                <th class=titulochico width=12%> Tipo Aseg.</th>
+                <th class=titulochico width=8%> Beneficiarios Activos </th>
+                <th class=titulochico width=8%> Enrolado </th>
+                <th class=titulochico width=8%> Vencimiento de fe de vida </th>
+
+
+                <!--
+                <th class=titulochico width=15%> Vencimiento del Seguro Social </th>
+                <th class=titulochico width=30%> Último periodo de aporte</th>
+                -->
+            </tr>
+            <tr bgcolor=#e2e8f6>
+                <td align=center>
+                    <input name=elegir type=radio value='' checked id=0></input>
+                </td>
+                <td align=center>
+                    1234567
+                </td>
+                <td align=center>BRIGIDA
+                </td>
+                <td align=center>GAUTO JARA
+                </td>
+                <td align=center>01-02-1967
+                </td>
+                <td align=center>FEMENINO
+                </td>
+                <td align=center>TITULAR
+                </td>
+                <td align=center>2
+                </td>
+                <td align=center>SI
+                </td>
+                <td align=center>
+                </td>
+
+                <!-- <td align=center>30-06-2020
+                </td>
+                <td align=center>MARZO/2020
+                </td>
+                    -->
+            </tr>	</table>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+
+        <table>
+            <tr>
+                <th class=titulochico width=6%>Nro. Patronal</th>
+                <th class=titulochico width=20%> Empleador</th>
+                <th class=titulochico width=4%> Estado</th>
+                <th class=titulochico width=6%> Meses de aporte</th>
+                <th class=titulochico width=6%> Vencimiento</th>
+                <th class=titulochico width=6%> Ultimo Periodo Abonado</th>
+            </tr>
+            <tr bgcolor=#e2e8f6>
+
+                <td align=center>
+                    0554-20-0170
+                </td>
+                <td align=center>AYALA FARIÑA MARIA RAQUEL
+                </td>
+                <td align=center>ACTIVO
+                </td>
+                <td align=center>24
+                </td>
+                <td align=center>31-08-2020</td><td align='center' >MARZO/2020</td></tr>	</table>
+        <INPUT TYPE="hidden" name="envio" value="ok">
+    </form>
+</body>
+</html>
+
