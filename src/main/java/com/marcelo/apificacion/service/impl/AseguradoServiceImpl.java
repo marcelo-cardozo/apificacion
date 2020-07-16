@@ -23,12 +23,13 @@ import java.util.Optional;
 public class AseguradoServiceImpl implements IAseguradoService {
 
     private String consultaAseguradoUrl = "https://servicios.ips.gov.py/consulta_asegurado/comprobacion_de_derecho_externo.php";
-
-    @Autowired
     private RestTemplate restTemplate;
-
-    @Autowired
     private ObjectMapper mapper;
+
+    public AseguradoServiceImpl(RestTemplate restTemplate, ObjectMapper mapper){
+        this.restTemplate = restTemplate;
+        this.mapper = mapper;
+    }
 
     @Override
     public Optional<ObjectNode> findAseguradoByCi(String ci) {
