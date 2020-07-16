@@ -2,17 +2,11 @@ package com.marcelo.apificacion;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.marcelo.apificacion.service.IAseguradoService;
 import com.marcelo.apificacion.service.impl.AseguradoServiceImpl;
 import lombok.SneakyThrows;
-import org.junit.Before;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.*;
-import org.springframework.test.web.client.ExpectedCount;
-import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Optional;
@@ -33,7 +27,7 @@ public class AseguradoServiceTests {
     @Test
     public void test_aseguradoTieneIps() {
         String okHtml = FileUtils.readTestResourceFile("testdata/ok.html");
-        String expected = FileUtils.readTestResourceFile("testdata/ok_result.json");
+        String expected = FileUtils.readTestResourceFile("testdata/result_ok.json");
 
         when(restTemplate.postForEntity(any(String.class), any(Object.class), any(Class.class)))
                 .thenReturn(new ResponseEntity(okHtml, HttpStatus.OK));
